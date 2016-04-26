@@ -15,10 +15,20 @@ void init(void)
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 }
-
+	GLfloat mat_ambient[] = { 0.329412f, 0.223529f, 0.027451f,1.0f };
+    GLfloat mat_diffuse[] = { 0.780392f, 0.568627f, 0.113725f, 1.0f };
+    GLfloat mat_specular[] = { 0.992157f, 0.941176f, 0.807843f, 1.0f };
+    GLfloat shine[] = {27.8974f};
 
 void materiales (GLfloat mat_ambient[],GLfloat mat_diffuse[], GLfloat mat_specular[], GLfloat shine[]){
-	
+	glPushMatrix();
+//setMaterial
+    glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, shine);
+	glutSolidSphere(2.0,200,200);
+    glFlush();
 	
 	
 	
@@ -45,10 +55,6 @@ void display(void)
 {
 // Propiedades del material
 
-    GLfloat mat_ambient[] = { 0.329412f, 0.223529f, 0.027451f,1.0f };
-    GLfloat mat_diffuse[] = { 0.780392f, 0.568627f, 0.113725f, 1.0f };
-    GLfloat mat_specular[] = { 0.992157f, 0.941176f, 0.807843f, 1.0f };
-    GLfloat shine[] = {27.8974f};
 
 // "Limpiamos" el frame buffer con el color de "Clear", en este
 // caso negro.
@@ -62,14 +68,8 @@ void display(void)
 // Rotacion de -30 grados en torno al eje y
     glRotated(-30.0, 0.0, 1.0, 0.0);
 // Dibujamos una "Tetera" y le aplico el material
-    glPushMatrix();
-//setMaterial
-    glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-    glMaterialfv(GL_FRONT, GL_SHININESS, shine);
-	glutSolidSphere(2.0,200,200);
-    glFlush();
+	materiales(mat_ambient,mat_diffuse,mat_specular,shine);
+    
 }
 
 // Termina la ejecucion del programa cuando se presiona ESC
