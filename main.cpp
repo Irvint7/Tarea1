@@ -1,179 +1,12 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
-<<<<<<< HEAD
 #include <math.h>
-
-
-void display(void)
-{
-    glClear(GL_COLOR_BUFFER_BIT);
-    glColor3d(1.0,1.0,1.0);
-    glBegin(GL_POLYGON);
-    glVertex2d(-1,0);glVertex2d(-1.3,2.3); 
-    glVertex2d(0,1);glVertex2d(1.3,2.3);
-    glVertex2d(1,0);glVertex2d(1,-5);
-    glVertex2d(-1,-5);glVertex2d(-1,0);
-    glEnd();
-    
-    glBegin(GL_POLYGON);
-    glVertex2d(1.3,-0.6);glVertex2d(1.6,2.5); 
-    glVertex2d(5,5.6);glVertex2d(4.6,6.0);
-    glVertex2d(6,6.5); glVertex2d(5.5,1);
-    glVertex2d(4.,0.0); glVertex2d(1.3,-0.6);
-    glEnd();
-    
-     glBegin(GL_POLYGON);
-    glVertex2d(-1.3,-0.6);glVertex2d(-1.6,2.5); 
-    glVertex2d(-5,5.6);glVertex2d(-4.6,6.0);
-    glVertex2d(-6,6.5); glVertex2d(-5.5,1);
-    glVertex2d(-4.,0.0); glVertex2d(-1.3,-0.6);
-    glEnd();
-    
-   
-    glBegin(GL_POLYGON);
-    glVertex2d(1.3,-5.3);glVertex2d(1.3,-5.3);
-    glVertex2d(1.3,-0.9);glVertex2d(2.7,-1.6);
-    glVertex2d(2.7,-8);glVertex2d(2,-8.5);
-    glVertex2d(1.3,-6.); glVertex2d(-1.3,-6.);
-    glVertex2d(-1.3,-5.3);
-    glEnd();
-    
-    
-    glBegin(GL_POLYGON);
-   
-    glVertex2d(-1.3,-0.9);glVertex2d(-2.7,-1.6);
-    glVertex2d(-2.7,-8);glVertex2d(-2,-8.5);
-    glVertex2d(-1.3,-6.);
-    glEnd();
-    
-    
-    glBegin(GL_POLYGON);
-   glVertex2d(4,-1);glVertex2d(4,-0.4); 
-   glVertex2d(5.3,0.4); glVertex2d(5.,-6.2);
-   glVertex2d(3.,-7.7); glVertex2d(3,-1.6);
-    glEnd();
-    
-   glBegin(GL_POLYGON);
-   glVertex2d(-4,-1);glVertex2d(-4,-0.4); 
-   glVertex2d(-5.3,0.4); glVertex2d(-5.,-6.2);
-   glVertex2d(-3.,-7.7); glVertex2d(-3,-1.6);
-   glEnd();
-    
-     glBegin(GL_POLYGON);
-   glVertex2d(1,-6.4);glVertex2d(-1,-6.4); 
-   glVertex2d(-1.6,-8.6); glVertex2d(1.6,-8.6);
-   glEnd();
-    
-    
-    
-   
-	glBegin(GL_POLYGON);
-    glVertex2d(0.0,1.3);
-    glVertex2d(3.8,5);
-    glVertex2d(4.4,6);
-    glBegin(GL_POINTS);
-	for(double i=0.75; i<2.3; i+=0.001){
-		float rad=6, calx,caly;
-		calx= rad*cos(i);
-		caly= rad*sin(i)+1.9;
-		glVertex2d(calx, caly);
-	}
-	glVertex2d(-4.4,6);
-	glVertex2d(-3.8,5);
-    glVertex2d(0.0,1.3);
-	glEnd();
-	 
-    glEnd();
-    glColor3d(0.0,0.0,0.0);
-    glBegin(GL_TRIANGLES);
-    glVertex2d(0,3.8);glVertex2d(2.4,6); 
-    glVertex2d(-2.4,6);
-    glEnd();
-    
-   glBegin(GL_POLYGON);
-   glVertex2d(2,0.6);glVertex2d(2.1,1.1); 
-   glVertex2d(5,2.8); glVertex2d(4.9,2.3);
-   glEnd();
-   
-   glBegin(GL_POLYGON);
-   glVertex2d(2,1.6);glVertex2d(2.1,2.1); 
-   glVertex2d(5,3.8); glVertex2d(4.9,3.3);
-   glEnd();
-   
-   glBegin(GL_POLYGON);
-   glVertex2d(-2,0.6);glVertex2d(-2.1,1.1); 
-   glVertex2d(-5,2.8); glVertex2d(-4.9,2.3);
-   glEnd();
-   
-   glBegin(GL_POLYGON);
-   glVertex2d(-2,1.6);glVertex2d(-2.1,2.1); 
-   glVertex2d(-5,3.8); glVertex2d(-4.9,3.3);
-   glEnd();
-    
-    glColor3f(0.71, 0.07, 0.07);
-    
-   glBegin(GL_POLYGON);
-   glVertex2d(1.3,-0.9);glVertex2d(2.7,-1.6);
-    glVertex2d(3,-1.6);glVertex2d(4,-1);
-     glVertex2d(4,-1);glVertex2d(4,-0.4); 
-    glVertex2d(4,0);glVertex2d(1.3,-0.6);
-   
-   glEnd();
-    glBegin(GL_POLYGON);
-   glVertex2d(-1.3,-0.9);glVertex2d(-2.7,-1.6);
-    glVertex2d(-3,-1.6);glVertex2d(-4,-1);
-     glVertex2d(-4,-1);glVertex2d(-4,-0.4); 
-    glVertex2d(-4,0);glVertex2d(-1.3,-0.6);
-   
-   glEnd();
-    
-    glFlush();
-    
-    
-   
-}
-
-
-void init (void)
-{
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(-10,10,-10,10,-10,10);
-    glClearColor(0.0,0.0,0.0,0.0);
-}
-
-int main(int argc, char** argv)
-{
-    glutInit(&argc, argv);
-    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize (800, 700);
-    glutInitWindowPosition (100, 100);
-    glutCreateWindow ("Transformers");
-    init ();
-    glutDisplayFunc(display);
-   
-    glutMainLoop();
-    return 0;
-}
-
-//hola esto es para hacer un cambio en esta vaina
-//hola MEMO 
-=======
 #include <stdlib.h>
+GLfloat posx=0;
+GLfloat posy=0;
+GLfloat px=0;
+GLfloat py=0;
 
-void init(void)
-{
-    GLfloat light_position[] = { 0.0, 0.0, 5.0,0.0};
-
-// Activamos la fuente de luz
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glDepthFunc(GL_LESS);
-    glEnable(GL_DEPTH_TEST);
-	glLightfv(GL_LIGHT0,GL_POSITION,light_position);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
-}
 	GLfloat ambient[] = { 0.0215f, 0.1745f, 0.0215f, 0.55f };
     GLfloat diffuse[] = {0.07568f, 0.61424f, 0.07568f, 0.55f};
     GLfloat specular[] = {0.633f, 0.727811f, 0.633f, 0.55f};
@@ -188,45 +21,32 @@ void materiales (GLfloat mat_ambient[],GLfloat mat_diffuse[], GLfloat mat_specul
     glMaterialfv(GL_FRONT, GL_SHININESS, shine);
 	glutSolidSphere(1.5,200,200);
     glFlush();
-	
-	
 	}
-
-
-void reshape(int w, int h)
-{
-    glViewport(0, 0,  (GLsizei) w, (GLsizei) h);
-// Activamos la matriz de proyeccion.
-    glMatrixMode(GL_PROJECTION);
-// "limpiamos" esta con la matriz identidad.
-    glLoadIdentity();
-// Usamos proyeccion ortogonal
-    glOrtho(-3, 3, -3, 3, -3, 3);
-// Activamos la matriz de modelado/visionado.
-    glMatrixMode(GL_MODELVIEW);
-// "Limpiamos" la matriz
-    glLoadIdentity();
-}
-
 // Aqui ponemos lo que queremos dibujar.
 void display(void)
 {
-// Propiedades del material
+	px=GLfloat(posx)*0.01;
+	py=1-GLfloat(posy)*0.01; 
+	GLfloat light_position[] = {px, py, 1.0,0.0};
+	glLightfv(GL_LIGHT0,GL_POSITION,light_position);
 
+// Activamos la fuente de luz
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glDepthFunc(GL_LESS);
+    glEnable(GL_DEPTH_TEST);
+	glLightfv(GL_LIGHT0,GL_POSITION,light_position);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-// "Limpiamos" el frame buffer con el color de "Clear", en este
-// caso negro.
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    glMatrixMode( GL_MODELVIEW_MATRIX );
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);// "Limpiamos" el frame buffer con el color de "Clear", en este caso negro.
+	glMatrixMode( GL_MODELVIEW_MATRIX );
     glLoadIdentity();
-
-// Rotacion de 20 grados en torno al eje x
-    glRotated(20.0, 1.0, 0.0, 0.0);
-// Rotacion de -30 grados en torno al eje y
-    glRotated(-30.0, 0.0, 1.0, 0.0);
-// llamamos la funcion que dibuja la esfera y le pasamos los valores de los colores
-	materiales(ambient,diffuse,specular,sshine);
+	materiales(ambient,diffuse,specular,sshine);// llamamos la funcion que dibuja la esfera y le pasamos los valores de los colores
+}
+void raton(int x, int y)
+{   posx=x;
+	posy=y; 
+	display();
 }
 
 // Termina la ejecucion del programa cuando se presiona ESC
@@ -325,6 +145,25 @@ void keyboard(unsigned char key, int x, int y)
     }
 }
 
+void reshape(int w, int h)
+{
+    glViewport(0, 0,  (GLsizei) w, (GLsizei) h);
+	glMatrixMode(GL_PROJECTION);// Activamos la matriz de proyeccion.
+	glLoadIdentity();// "limpiamos" esta con la matriz identidad.
+	glOrtho(-3, 3, -3, 3, -3, 3);// Usamos proyeccion ortogonal
+	glMatrixMode(GL_MODELVIEW);// Activamos la matriz de modelado/visionado.
+	glLoadIdentity();// "Limpiamos" la matriz
+}
+
+void init (void)
+{
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(-10,10,-10,10,-10,10);
+    glClearColor(0.0,0.0,0.0,0.0);
+}
+
+
 // Main del programa.
 int main(int argc, char **argv)
 {
@@ -344,16 +183,15 @@ int main(int argc, char **argv)
 
 // Creamos literalmente la ventana y le adjudicamos el nombre que se
 // observara en su barra de titulo.
-    glutCreateWindow ("Esfera que cambia de color ");
+    glutCreateWindow ("Esfera que cambia de color y movimiento de foco ");
 
 // Inicializamos el sistema
     init();
-
-    glutDisplayFunc(display);
+	glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutKeyboardFunc(keyboard);
+    glutMotionFunc(raton);
     glutMainLoop();
 
-    return 0;
+	return 0;
 }
->>>>>>> a8e61d84e6584fbcedb565c00798bc671621302a
