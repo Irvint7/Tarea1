@@ -2,7 +2,9 @@
 #include <GL/glut.h>
 <<<<<<< HEAD
 #include <math.h>
-
+void raton(int x, int y)
+{
+}
 
 void display(void)
 {
