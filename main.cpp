@@ -6,7 +6,6 @@ GLfloat posx=0;
 GLfloat posy=0;
 GLfloat px=0;
 GLfloat py=0;
-bool mouserightdown = false;
 
 	GLfloat ambient[] = { 0.0215f, 0.1745f, 0.0215f, 0.55f };
     GLfloat diffuse[] = {0.07568f, 0.61424f, 0.07568f, 0.55f};
